@@ -138,7 +138,7 @@ class Block(nn.Module):
         x = x + self.ffwd(self.ln2(x))
         return x
 
-class BigramLanguageModel(nn.Module):
+class GPTModel(nn.Module):
     def __init__(self):
         super().__init__()
         # Each input number will go to a specific row and will read off the logits (scores) for the next token from a lookup table
@@ -188,7 +188,7 @@ class BigramLanguageModel(nn.Module):
             idx = torch.cat((idx, idx_next), dim=1) # (B, T+1)
         return idx
 
-model = BigramLanguageModel()
+model = GPTModel()
 m = model.to(device)
 
 # create a PyTorch optimizer
