@@ -5,11 +5,12 @@ from torch.nn import functional as F
 # Let's set our hyper parameters
 batch_size = 32 # How many sequences do we want to process in parallel
 block_size = 8 # How long in characters should these characters be?
-max_iters = 3000
-eval_interval = 300
-learning_rate = 1e-2
+max_iters = 5000
+eval_interval = 500
+learning_rate = 1e-3
 device = 'cuda' if torch.cuda.is_available() else 'cpu' # If you have a gpu, this code makes it run on the gpu.
 eval_iters = 200
+n_embd = 32
 
 torch.manual_seed(1337)
 # !wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
@@ -67,18 +68,48 @@ def estimate_loss(): # This function averages the loss over multiple batches
     model.train()
     return out
 
+class Head(nn.Module):
+    """ one head of self-attention """
+    def __init__(self, head_size):
+        super().__init__()
+        self.key = nn.Linear(n_embd, head_size, bias=False)
+        self.query = nn.Linear(n_embd, head_size, bias=False)
+        self.value = nn.Linear(n_embd, head_size, bias=False)
+        self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
+    
+    def forward(self, x):
+        B,T,C = x.shape
+        k = self.key(x) # (B,T,C)
+        q = self.query(x) # (B,T,C)
+        # compute attention scores ("affinities")
+        weights = q @ k.transpose(-2, -1) * C # (B,T,C) @ (B,C,T) -> (B, T, T)
+        weights = weights.masked_fill(self.tril[:T, :T] == 0, float('-inf')) # (B, T, T)
+        weights = F.softmax(weights, dim=-1) # (B,T,T)
+        # perform the weighted aggregation of the values
+        v = self.value(x) # (B,T,C)
+        out = weights @ v # (B,T,T) @ (B,T,C) -> (B,T,C)
+        return out
 
 class BigramLanguageModel(nn.Module):
-    def __init__(self, vocab_size):
+    def __init__(self):
         super().__init__()
         # Each input number will go to a specific row and will read off the logits (scores) for the next token from a lookup table
-        self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
+        self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
+        self.position_embedding_table = nn.Embedding(block_size, n_embd)
+        self.sa_head = Head(n_embd)
+        self.lm_head = nn.Linear(n_embd, vocab_size)
     
     def forward(self, idx, targets=None):
+        B, T = idx.shape
         # we take the index and pass them into the embedding table
         # we arrange this into a batch (4) by time (8) by channel (vocab_size, 65) tensor
-        logits = self.token_embedding_table(idx) # (B, T, C)
-        if targets is None: 
+        token_embeddings = self.token_embedding_table(idx) # (B, T, C)
+        position_embeddings = self.position_embedding_table(torch.arange(T, device=device)) # (T, C)
+        x = token_embeddings + position_embeddings # (B, T, C)
+        x = self.sa_head(x) # apply one head of self attention
+        logits = self.lm_head(x) # (B, T, vocab_size)
+
+        if targets is None:
             loss = None
         else:
             # reshape our logits so we can pass in the logits in the way the cross entropy function EXPECTS
@@ -94,8 +125,10 @@ class BigramLanguageModel(nn.Module):
         # given an array of indices idx of size B (batch_size) by T
         # we want to generate the next n tokens defined by max_new_tokens
         for _ in range(max_new_tokens):
+            # crop the contex to the last block size tokens
+            idx_cond = idx[:, -block_size:]
             # Get the predicted tokens
-            logits, loss = self(idx)
+            logits, loss = self(idx_cond)
             # Get the last element in the time dimension
             logits = logits[:, -1, :]
             # Use softmax to get our probabilities (B, C)
@@ -106,7 +139,7 @@ class BigramLanguageModel(nn.Module):
             idx = torch.cat((idx, idx_next), dim=1) # (B, T+1)
         return idx
 
-model = BigramLanguageModel(vocab_size)
+model = BigramLanguageModel()
 m = model.to(device)
 
 # create a PyTorch optimizer
