@@ -3,16 +3,17 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 # Let's set our hyper parameters
-batch_size = 64 # How many sequences do we want to process in parallel
-block_size = 256 # How long in characters should these characters be?
+batch_size = 32 # How many sequences do we want to process in parallel
+block_size = 96 # How long in characters should these characters be?
 max_iters = 5000
 eval_interval = 500
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu' # If you have a gpu, this code makes it run on the gpu.
+print(device)
 eval_iters = 200
 n_embd = 384
 n_head = 6
-n_layer = 6
+n_layer = 8
 dropout = 0.2
 
 torch.manual_seed(1337)
@@ -86,7 +87,7 @@ class Head(nn.Module):
         k = self.key(x) # (B,T,C)
         q = self.query(x) # (B,T,C)
         # compute attention scores ("affinities")
-        weights = q @ k.transpose(-2, -1) * C # (B,T,C) @ (B,C,T) -> (B, T, T)
+        weights = q @ k.transpose(-2,-1) * k.shape[-1]**-0.5 # (B, T, hs) @ (B, hs, T) -> (B, T, T)
         weights = weights.masked_fill(self.tril[:T, :T] == 0, float('-inf')) # (B, T, T)
         weights = F.softmax(weights, dim=-1) # (B,T,T)
         weights = self.dropout(weights)
@@ -100,12 +101,13 @@ class MultiHeadAttention(nn.Module):
     def __init__(self, num_heads, head_size):
         super().__init__()
         self.heads = nn.ModuleList( [Head(head_size) for _ in range(num_heads)])
-        self.proj = nn.Linear(n_embd, n_embd)
+        self.proj = nn.Linear(head_size * num_heads, n_embd)
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
-        return self.dropout(self.proj(out))
+        out = self.dropout(self.proj(out))
+        return out
 
 class FeedForward(nn.Module):
     """ a simple linear layer followed by a non linearity """
@@ -147,6 +149,16 @@ class GPTModel(nn.Module):
         self.blocks = nn.Sequential(*[Block(n_embd, n_head=n_head) for _ in range(n_layer)])
         self.ln_f = nn.LayerNorm(n_embd)
         self.lm_head = nn.Linear(n_embd, vocab_size)
+        self.apply(self._init_weights)
+
+    def _init_weights(self, module):
+        if isinstance(module, nn.Linear):
+            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
+            if module.bias is not None:
+                torch.nn.init.zeros_(module.bias)
+        elif isinstance(module, nn.Embedding):
+            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
+
     
     def forward(self, idx, targets=None):
         B, T = idx.shape
@@ -156,6 +168,8 @@ class GPTModel(nn.Module):
         position_embeddings = self.position_embedding_table(torch.arange(T, device=device)) # (T, C)
         x = token_embeddings + position_embeddings # (B, T, C)
         x = self.blocks(x) # (B,T,C)
+        x = self.ln_f(x) # (B,T,C)
+
         logits = self.lm_head(x) # (B, T, vocab_size)
 
         if targets is None:
@@ -190,13 +204,15 @@ class GPTModel(nn.Module):
 
 model = GPTModel()
 m = model.to(device)
+# print the number of parameters in the model
+print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
 
 # create a PyTorch optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
 for iter in range(max_iters):
     # evaluate the loss on train and validation sets every once in a while
-    if iter % eval_interval == 0:
+    if iter % eval_interval == 0 or iter == max_iters - 1:
         losses = estimate_loss()
         print(f"Step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
 
@@ -211,4 +227,4 @@ for iter in range(max_iters):
 
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+print(decode(m.generate(context, max_new_tokens=2000)[0].tolist()))
