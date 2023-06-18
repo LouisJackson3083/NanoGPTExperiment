@@ -13,7 +13,7 @@ Some immediate observations of the results - the model does not make grammatical
 
 It's interesting to compare the output of both the Shakespeare text and the Star Wars text.
 The Shakespeare text is more unique and random than the Star Wars text, but is less coherent.
-When I was training on the Star Wars  text, I found that the model got a significantly lower training loss but the validation loss started to climb up as it neared 5000 steps. I think this is because it started to overfit the text data, as the script is too too small. Despite this, there are more lines in the Star Wars text that make sense, though I feel this is because those lines that do make sense appear many times in the script.
+When I was training on the Star Wars  text, I found that the model got a significantly lower training loss but the validation loss started to climb up as it neared 5000 steps. I think this is because it started to overfit the text data, as the script is too too small. Despite this there are more lines in the generated Star Wars text that make sense, like "*LEIA: Are you all right?  Come on.*". However, I feel this is because these kinds of phrases would appear multiple times throughout the script.
 There is potentially much to do here with word/sentence embeddings, which would allow the model to generate more coherent sentences - though I want to start over with a new model to do this.
 
 <br>
@@ -76,45 +76,85 @@ Go, be make far, many lord.
 
 ### Star Wars
 LEIA: You like back it!
+
 LANDO: Backing them? Whey don't -- wrong, we come here?
+
 LEIA: All right? I'm quite powerfr to compass.
+
 HAN: Command you too late vacuate.
+
 HAN: Not really!
+
 LUKE: Dack!
+
 HAN: You havo one board scons.
+
 LEIA: You would use, going?
+
 THREEPIO: Do you take this true point! The ability to this shat!  Some kid!
+
 THREEPIO: Look!  I told you to forget it.  Turn to outrange, which will you be.
+
 HAN: Then they hear st. I lose to your deaction!
+
 LUKE: I told my gone in in the fire quire.
+
 LUKE: I'll be just going crazy with you, the Jabba the Hutt.
+
 LI'm trying compled!
+
 HAN: Chewie! G--one-three!
+
 HAN: Get out there!
+
 LEIA: Are you all right?  Come on.
+
 LUKE: I'll be at two!
+
 HAN: Get of her!
+
 LUKE: Now!  Come on!
+
 LEIA: I you gotta good with about you.  Oucce make stop!  Where could plensure?
+
 LUKE: You, but this fightere wars aways!
+
 LUKE: Look I'm a way another you could. Thear-- you get? Oh, did up! Oh! So go!
+
 THREEPIO: Sir, that of your shipful! Jabba at madme well palt!
+
 HAN: Chewie, get up on the security-tworders and not aventher energy season.  We'll move on the leader shield and cannon will give confire those planetration block AA--ythreport ling.  The Rebel cruise well speed from a great pilot of being strange.
+
 LUKE: It looks like I'm going nowhere.
+
 HAN: I'm all right, patrol. Now for a droids will if I get bocEdeult. Right speed, signal.
+
 LEIA: Cut the ship no leave!
+
 HAN: Ult me to it!
+
 LUKE: Jabba.  He's that only a fighter place chance.  You have been jettisoned.
+
 VADER: Did you fire droids?
+
 LANDO: No, we've going aboard. I just want you to live been patience.
+
 YODA: Hman change. No disince time.
+
 HAN: I could about somebody get this big so bucket I could.
+
 LUKE: Thank you. To younders.
+
 THREEPIO: I once you \Nice!  Come on!
+
 HAN: I told you to turn one.
+
 HAN: Don't to really to picked out by hom interfere.
+
 LUKE: What about the might helpere?  You know it!
+
 LUKE: Quietly, see where might back.
+
 THREEPIO: Jabba offers the but of your sight, sir.  I interructed and in a
 
 <br>
@@ -122,4 +162,5 @@ THREEPIO: Jabba offers the but of your sight, sir.  I interructed and in a
 # How I developed this model
 
 ![](image.png)
+
 The model was based on the Attention Is All You Need paper (https://arxiv.org/abs/1706.03762), and Andrej Karparthy's amazing tutorials on youtube: https://www.youtube.com/@AndrejKarpathy
