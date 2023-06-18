@@ -1,3 +1,5 @@
+# A quick little script that will check if you have cuda supported and enabled on your system.
+
 import torch
  
 print(f"Is CUDA supported by this system? {torch.cuda.is_available()}")
