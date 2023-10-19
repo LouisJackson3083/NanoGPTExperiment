@@ -6,6 +6,24 @@ My secondary goal is to compare and contrast different generation functions.
 ## Setup
 To run this model, you need to have a CUDA supporting GPU, otherwise the model will take a long time to run on a CPU.
 The model takes in an input text file, the longer the better, and tries to generate text based off of the character sequences found in the text.
+
+Windows:
+```
+py -m venv venv
+venv\Scripts\activate.bat
+py -m pip install --upgrade pip
+py -m pip install -r requirements.txt
+```
+
+Linux/OSX:
+```
+python3 -m venv venv
+venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
+
+
 I've supplied 2 texts to the model, one is the entire works of Shakespeare (1,115,394 characters) and episodes IV to VI of Star Wars (159,478 characters).
 
 ## Findings
