@@ -1,7 +1,12 @@
 # NanoGPTExperiment
-My attempt at building a generative pretrained transformer ML model, like Chat GPT.
-My primary goal is to build the model piece by piece to gain further understanding of transformers, train it on a small data set of text and then try to generate meaningful output.
-My secondary goal is to compare and contrast different generation functions.
+### What is this project about?
+This project was my attempt at building a gpt model - similar to Chat GPT.
+The primary goal when I started this in the summer of 2023 was to build the model piece by piece to gain an understanding of transformers, train it on a small dataset, and then try to generate meaningful output.
+Since picking the project back up again with the start of my NLP studies, I aim to expand on my original code, introducing different tokenisation and generation methods.
+### Current goals:
+- [x] Implement N-character tokenisation
+- [ ] Implement N-gram tokenisation
+- [ ] Implement different generation methods
 
 ## Setup
 To run this model, you need to have a CUDA supporting GPU, otherwise the model will take a long time to run on a CPU.
@@ -12,6 +17,7 @@ Windows:
 py -m venv venv
 venv\Scripts\activate.bat
 py -m pip install --upgrade pip
+python3 -m pip install torch --index-url https://download.pytorch.org/whl/cu117
 py -m pip install -r requirements.txt
 ```
 
@@ -20,11 +26,11 @@ Linux/OSX:
 python3 -m venv venv
 venv/bin/activate
 python3 -m pip install --upgrade pip
+python3 -m pip install torch --index-url https://download.pytorch.org/whl/cu117
 python3 -m pip install -r requirements.txt
 ```
 
-
-I've supplied 2 texts to the model, one is the entire works of Shakespeare (1,115,394 characters) and episodes IV to VI of Star Wars (159,478 characters).
+I've supplied 2 example texts to the model, one is the entire works of Shakespeare (1,115,394 characters) and episodes IV to VI of Star Wars (159,478 characters).
 
 ## Findings
 Some immediate observations of the results - the model does not make grammatical sense. It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense. This is because the model does not have word or sentence embeddings. If it had word/sentence embeddings, we might be able to get more grammatically correct lines.
@@ -37,6 +43,11 @@ There is potentially much to do here with word/sentence embeddings, which would 
 <br>
 
 ## Results
+
+<details>
+    <summary>Toggle Switch</summary>
+    Foldable Content[enter image description here][1]
+</details>
 
 ### Shakespeare
 

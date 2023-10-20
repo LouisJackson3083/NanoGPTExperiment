@@ -1,10 +1,13 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+from nltk.util import ngrams
+from nltk.tokenize import word_tokenize
+import re
 
 # Let's set our hyper parameters
 batch_size = 32 # How many sequences do we want to process in parallel
-block_size = 96 # How long in characters should these characters be?
+block_size = 64 # How long in characters should these characters be?
 max_iters = 5000
 eval_interval = 500
 learning_rate = 3e-4
@@ -20,18 +23,42 @@ torch.manual_seed(1337)
 # !wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
 
 # let's open the text file 
-with open('input.txt', 'r', encoding='utf-8') as f:
+with open('starwars.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
+#region tokenisation
+# 1 gram character
+chars_1gram = sorted(list(set(text))) # the list of every unique character in the text
+# 2 gram character
+chars_2gram = sorted(list(set(re.findall('[a-zA-Z]{2}',text))))
+chars_2gram += chars_1gram
+
+tokens = chars_2gram
+vocab_size = len(tokens)
+#endregion
+
 #region encoding and decoding
-chars = sorted(list(set(text)))
-vocab_size = len(chars)
+stoi = { character:index for index,character in enumerate(tokens) } # Converts a string to integer
+itos = { index:character for index,character in enumerate(tokens) } # Converts an integer to string
 # We are now goign to create a mapping from integers to characters
-chars = sorted(list(set(text))) # the list of every unique character in the text
-stoi = { character:index for index,character in enumerate(chars) } # Converts a string to integer
-itos = { index:character for index,character in enumerate(chars) } # Converts an integer to string
-encode = lambda string: [stoi[character] for character in string]  # Convert a string to a list of integers
-decode = lambda list: ''.join([itos[index] for index in list])  # Convert a list of integers to a string
+encode_1gram = lambda text: [stoi[character] for character in text]  # Convert a string to a list of integers
+
+decode_1gram = lambda list: ''.join([itos[index] for index in list])  # Convert a list of integers to a string
+
+def encode_2gram(text):
+    encoded_text = []
+    i = 0
+    while (i < len(text)-1):
+        if (text[i]+text[i+1] in tokens):
+            encoded_text.append(stoi[text[i]+text[i+1]])
+            i+=2
+        else:
+            encoded_text.append(stoi[text[i]])
+            i+=1
+    return encoded_text
+
+def decode_2gram(list):
+    return ''.join([itos[index] for index in list])
 
 # Using characters as our tokens isn't a bad idea, but it might be smarter to consider 3 characters at a time etc
 # This is because we could represent our sentence in a much smaller list, just with integers up to 5000 instead of 65 for example
@@ -40,7 +67,7 @@ decode = lambda list: ''.join([itos[index] for index in list])  # Convert a list
 
 # We are going to now encode the entire shakespeare text dataset, and turn it into a torch.Tensor
 # A torch.Tensor is a multi-dimensional matrix containing elements of a single data type.
-data = torch.tensor(encode(text), dtype = torch.long)
+data = torch.tensor(encode_2gram(text), dtype = torch.long)
 # Now let's split this data into a training and validation set
 n = int(0.9 * len(data))
 train_data = data[:n]
@@ -227,4 +254,4 @@ for iter in range(max_iters):
 
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=2000)[0].tolist()))
+print(decode_2gram(m.generate(context, max_new_tokens=2000)[0].tolist()))
