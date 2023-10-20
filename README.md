@@ -197,6 +197,7 @@ There is potentially much to do here with word/sentence embeddings, which would 
 
 <details>
     <summary>2-Character Shakespeare</summary>
+
     ABETH:
     A bait will leader for most summer law. I'll to discove them.
 
@@ -325,6 +326,7 @@ There is potentially much to do here with word/sentence embeddings, which would 
 
 <details>
     <summary>2-Character Star Wars</summary>
+    
     AA, makes up!
     NEEDA: Only movery ybody.  Do you know him?
     CREATURE: Help you. You would be done. For my ally the sattle side of fact!  My hand no sign of th My father religion. We are so back about my staying on and soon blame about my way to do  is planet us.
