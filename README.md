@@ -45,146 +45,148 @@ There is potentially much to do here with word/sentence embeddings, which would 
 ## Results
 
 <details>
-    <summary>Toggle Switch</summary>
-    Foldable Content[enter image description here][1]
+    <summary>1-Character Shakespeare</summary>
+
+    AUFIDIUS:
+    So warrant, Sir, uncle;
+    Do here one gentle fet her father proceed
+    Faith strike and the cale in all her man!
+    A children, and like me soundly convey'd worship;
+    But who should pity your royaling gentleman?
+    He liest me w friends ne're not of you are nor greet of
+    ot, you fire. In us nothing truth to be done.
+
+    MENENIUS:
+    The besteed, he'll ever she died me better with her.
+
+    PERDIVERSO:
+    To she.
+
+    Second Servingman:
+    So here, but puts you with witding, flower 'tis told:
+    The fathere shall provoke her beggarle,
+    But see apolume you to rusing in herself.
+
+    JOHN OF GAUNT:
+    That they shall enrich with King Herence's darth,
+    Or oft orath! Look and they that thou wantor bends,
+    Thou so left'st thou hast to loath, pale to mark our:
+    Whast any mind, booth will he soot it beloved,
+    To fe my forfe; and I have done,--
+
+    LADY ANNE:
+    So standing what?
+
+    ROMEO:
+    Should it.
+
+    KING LEWIS XI:
+    Hold, hark: shall come the kneft duke off;
+    He weight make daughter courself and part indeed:
+    But she would strift
+    Intercale mercy, if the will cannot shall sit
+
+    Put ever: there is that third in the tales of men
+    Amagia wall hence, on the his body of men,
+    To prepared in him.
+
+    GREGORY:
+    Speak madly great in this desperate corse;
+    Indeed from that he list to stay, so live,
+    Let that yet no excuse, go my mind. Have I
+    An imper thy Forbalty weath to him honour.
+
+    KING HENRY OVI:
+    Go, be make far, many lord.
+
 </details>
 
-### Shakespeare
+<details>
+    <summary>1-Character Star Wars</summary>
 
-AUFIDIUS:
-So warrant, Sir, uncle;
-Do here one gentle fet her father proceed
-Faith strike and the cale in all her man!
-A children, and like me soundly convey'd worship;
-But who should pity your royaling gentleman?
-He liest me w friends ne're not of you are nor greet of
-ot, you fire. In us nothing truth to be done.
+    LEIA: You like back it!
 
-MENENIUS:
-The besteed, he'll ever she died me better with her.
+    LANDO: Backing them? Whey don't -- wrong, we come here?
 
-PERDIVERSO:
-To she.
+    LEIA: All right? I'm quite powerfr to compass.
 
-Second Servingman:
-So here, but puts you with witding, flower 'tis told:
-The fathere shall provoke her beggarle,
-But see apolume you to rusing in herself.
+    HAN: Command you too late vacuate.
 
-JOHN OF GAUNT:
-That they shall enrich with King Herence's darth,
-Or oft orath! Look and they that thou wantor bends,
-Thou so left'st thou hast to loath, pale to mark our:
-Whast any mind, booth will he soot it beloved,
-To fe my forfe; and I have done,--
+    HAN: Not really!
 
-LADY ANNE:
-So standing what?
+    LUKE: Dack!
 
-ROMEO:
-Should it.
+    HAN: You havo one board scons.
 
-KING LEWIS XI:
-Hold, hark: shall come the kneft duke off;
-He weight make daughter courself and part indeed:
-But she would strift
-Intercale mercy, if the will cannot shall sit
+    LEIA: You would use, going?
 
-Put ever: there is that third in the tales of men
-Amagia wall hence, on the his body of men,
-To prepared in him.
+    THREEPIO: Do you take this true point! The ability to this shat!  Some kid!
 
-GREGORY:
-Speak madly great in this desperate corse;
-Indeed from that he list to stay, so live,
-Let that yet no excuse, go my mind. Have I
-An imper thy Forbalty weath to him honour.
+    THREEPIO: Look!  I told you to forget it.  Turn to outrange, which will you be.
 
-KING HENRY OVI:
-Go, be make far, many lord.
+    HAN: Then they hear st. I lose to your deaction!
 
-### Star Wars
-LEIA: You like back it!
+    LUKE: I told my gone in in the fire quire.
 
-LANDO: Backing them? Whey don't -- wrong, we come here?
+    LUKE: I'll be just going crazy with you, the Jabba the Hutt.
 
-LEIA: All right? I'm quite powerfr to compass.
+    LI'm trying compled!
 
-HAN: Command you too late vacuate.
+    HAN: Chewie! G--one-three!
 
-HAN: Not really!
+    HAN: Get out there!
 
-LUKE: Dack!
+    LEIA: Are you all right?  Come on.
 
-HAN: You havo one board scons.
+    LUKE: I'll be at two!
 
-LEIA: You would use, going?
+    HAN: Get of her!
 
-THREEPIO: Do you take this true point! The ability to this shat!  Some kid!
+    LUKE: Now!  Come on!
 
-THREEPIO: Look!  I told you to forget it.  Turn to outrange, which will you be.
+    LEIA: I you gotta good with about you.  Oucce make stop!  Where could plensure?
 
-HAN: Then they hear st. I lose to your deaction!
+    LUKE: You, but this fightere wars aways!
 
-LUKE: I told my gone in in the fire quire.
+    LUKE: Look I'm a way another you could. Thear-- you get? Oh, did up! Oh! So go!
 
-LUKE: I'll be just going crazy with you, the Jabba the Hutt.
+    THREEPIO: Sir, that of your shipful! Jabba at madme well palt!
 
-LI'm trying compled!
+    HAN: Chewie, get up on the security-tworders and not aventher energy season.  We'll move on the leader shield and cannon will give confire those planetration block AA--ythreport ling.  The Rebel cruise well speed from a great pilot of being strange.
 
-HAN: Chewie! G--one-three!
+    LUKE: It looks like I'm going nowhere.
 
-HAN: Get out there!
+    HAN: I'm all right, patrol. Now for a droids will if I get bocEdeult. Right speed, signal.
 
-LEIA: Are you all right?  Come on.
+    LEIA: Cut the ship no leave!
 
-LUKE: I'll be at two!
+    HAN: Ult me to it!
 
-HAN: Get of her!
+    LUKE: Jabba.  He's that only a fighter place chance.  You have been jettisoned.
 
-LUKE: Now!  Come on!
+    VADER: Did you fire droids?
 
-LEIA: I you gotta good with about you.  Oucce make stop!  Where could plensure?
+    LANDO: No, we've going aboard. I just want you to live been patience.
 
-LUKE: You, but this fightere wars aways!
+    YODA: Hman change. No disince time.
 
-LUKE: Look I'm a way another you could. Thear-- you get? Oh, did up! Oh! So go!
+    HAN: I could about somebody get this big so bucket I could.
 
-THREEPIO: Sir, that of your shipful! Jabba at madme well palt!
+    LUKE: Thank you. To younders.
 
-HAN: Chewie, get up on the security-tworders and not aventher energy season.  We'll move on the leader shield and cannon will give confire those planetration block AA--ythreport ling.  The Rebel cruise well speed from a great pilot of being strange.
+    THREEPIO: I once you \Nice!  Come on!
 
-LUKE: It looks like I'm going nowhere.
+    HAN: I told you to turn one.
 
-HAN: I'm all right, patrol. Now for a droids will if I get bocEdeult. Right speed, signal.
+    HAN: Don't to really to picked out by hom interfere.
 
-LEIA: Cut the ship no leave!
+    LUKE: What about the might helpere?  You know it!
 
-HAN: Ult me to it!
+    LUKE: Quietly, see where might back.
 
-LUKE: Jabba.  He's that only a fighter place chance.  You have been jettisoned.
+    THREEPIO: Jabba offers the but of your sight, sir.  I interructed and in a
 
-VADER: Did you fire droids?
-
-LANDO: No, we've going aboard. I just want you to live been patience.
-
-YODA: Hman change. No disince time.
-
-HAN: I could about somebody get this big so bucket I could.
-
-LUKE: Thank you. To younders.
-
-THREEPIO: I once you \Nice!  Come on!
-
-HAN: I told you to turn one.
-
-HAN: Don't to really to picked out by hom interfere.
-
-LUKE: What about the might helpere?  You know it!
-
-LUKE: Quietly, see where might back.
-
-THREEPIO: Jabba offers the but of your sight, sir.  I interructed and in a
+</details>
 
 <br>
 
