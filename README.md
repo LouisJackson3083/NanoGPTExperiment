@@ -33,8 +33,13 @@ python3 -m pip install -r requirements.txt
 I've supplied 2 example texts to the model, one is the entire works of Shakespeare (1,115,394 characters) and episodes IV to VI of Star Wars (159,478 characters).
 
 ## Findings
-Some immediate observations of the results - the model does not make grammatical sense. It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense. This is because the model does not have word or sentence embeddings. If it had word/sentence embeddings, we might be able to get more grammatically correct lines.
+### 1-Character
+The first results I generated was with a 1-character model. At first glance the 1-character model appears to be a normal Shakespeare script, with appropriate new lines and paragraphs, but under close inspection it makes no grammatical sense.
+It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense - because the model does employ word or sentence embeddings. Despite this, it is very good at constructing actual words, just not very good at stringing them together in a way that makes grammatical or semantic sense.
 
+### 2-Character
+The second results I generated was with a 2-character model. 
+### Dataset comparison
 It's interesting to compare the output of both the Shakespeare text and the Star Wars text.
 The Shakespeare text is more unique and random than the Star Wars text, but is less coherent.
 When I was training on the Star Wars  text, I found that the model got a significantly lower training loss but the validation loss started to climb up as it neared 5000 steps. I think this is because it started to overfit the text data, as the script is too too small. Despite this there are more lines in the generated Star Wars text that make sense, like "*LEIA: Are you all right?  Come on.*". However, I feel this is because these kinds of phrases would appear multiple times throughout the script.
@@ -43,7 +48,7 @@ There is potentially much to do here with word/sentence embeddings, which would 
 <br>
 
 ## Results
-
+#### 1-Character
 <details>
     <summary>1-Character Shakespeare</summary>
 
@@ -187,6 +192,179 @@ There is potentially much to do here with word/sentence embeddings, which would 
     THREEPIO: Jabba offers the but of your sight, sir.  I interructed and in a
 
 </details>
+
+#### 2-Character
+
+<details>
+    <summary>2-Character Shakespeare</summary>
+    ABETH:
+    A bait will leader for most summer law. I'll to discove them.
+
+    First Caius from the want.
+
+    WhicERLady:
+    Go, hence.
+
+    CAPULET:
+    O dead!
+
+    AUFIDIUS:
+    So sir audierate is go better compouts and more.
+
+    SICINIUS:
+    Condition against, go all:
+    Sinker you'll stay out of Rome.
+
+    CORIOLANUS:
+    Nearer sense are trust them!
+
+    First Citizen:
+    Ay, series; it goes win
+    Here could have beheld him a worthy for his spilt
+    In law, no lesser wife will voay.
+    And, what you will dead?
+
+    SAMPSON:
+    But shepherd! same ut I, sir; and who, office thou commonst!
+
+    JOHN OF GAUNT:
+    Sir, that let me stand before her again!
+
+    NORTHUMBERLAND:
+    For being drunk them, thy lord;
+    Forbot on the thousand duty dug and my dealth.
+
+    GLOUCESTER:
+    Even that my traitor woes
+    That bleedy patritten scourge the idle bonds
+    Of move and bid thyself, and forced thee,
+    Setake thy leagues to expediention of such
+    And to win the wind to tedious wounds with thy gentlewo art
+    the two gorge home: to Content;
+    For evident themselves
+    Beseen until that ever power-but I say well. well, Is
+    doubt, Ill, fetch against thy father, well patient of York:
+    If write, if we come then? or your eye-hook
+    Shall perist not for Time.
+
+    TYRREL:
+    Thus knee not for doubt such war:
+    'Tis not much go to excell him about his country.
+
+    KING RICHARD II:
+    Even so he that thou pity in thy soldiers!
+
+    DUKE OF AUFIoiew my son:
+    Why is the oract that a heart is us stay:
+    Which shall my beautiful tongue that refuse
+    For our virtueds tunety takes me to be
+    some witness; to one badees? but, if we hate our eye.
+
+    LADY CAPULET:
+    My liege!
+
+    ROMEO:
+    What?
+
+    Messenger:
+    Be very pimbly, indeed. You are opposed
+    not an untauntimed cred to shore them on other.
+    TuRTHUMBERLAND:
+    The purse take your grace of me
+    To wave at one to bear us us of lawful lett
+    That we are weak usurp?
+
+    Second Musician:
+    They'll't not weep; but let them be king;
+    for, since notwice know him man let:
+    I'll make take my gentle angry tilted
+    Young landed enemies, your tongue present;
+    Hear him to attaste where I speak.
+
+    PAULINA:
+    I came to some much that
+    As by your first harm cannot do this particules am
+    Your band-countaintion this envious shall and
+    Forth for having night. Coventry, kill him: stay,
+    I'll unget him for God live him am oppoor to
+    stnaty to this crown helmed-trees, be marr'd; 'God!
+    Rine adiers, corse practise voices, girl,
+    My life, sometime to part
+    Because their colour.
+
+    EXETER:
+    Have not the king of peace?
+
+    Too rashful:
+    I hope to supply gift can constable,
+    That I vow for himself thy mind:
+    And therefore, marry, that alone; cannot yield it!
+
+    ROMEO:
+    So royal friends of my tent.
+    Heaven, phen ospesy!
+
+    GREMIO:
+    Besides my back! madam, and between nosor
+    but beavens some days: I'ld try you
+    So too grief as they, as my ladies to him?
+
+    CLARENCE:
+    Under grief; I pray you, grand Buckingham a
+    grief strike beats for his great ley and eye.
+
+    KING HENRY VI:
+    Why, to choose the tentastivious weddle angrey
+    That you repeal wish the purseman of stoccasion;
+    No twes; not from no more messetable.
+
+    DUKE OF YORK:
+    Comment, come; bewieven too soldiers; Hortile,
+    If you content you'll play
+</details>
+
+<details>
+    <summary>2-Character Star Wars</summary>
+    AA, makes up!
+    NEEDA: Only movery ybody.  Do you know him?
+    CREATURE: Help you. You would be done. For my ally the sattle side of fact!  My hand no sign of th My father religion. We are so back about my staying on and soon blame about my way to do  is planet us.
+    LUKE: Like!  if they're been up!  Okay!
+    THREEPIO: We're watch your!
+    HAN: We're watch your back, going into the city!
+    LUKE: Listen, friend, that's what you'll be IA: fortunation  are working if it can't him beginning to take him back. We going to fry iends with the Falcon, kid.
+    LUKE: But what that is do you.  No, I want to check it out on along by all myselfunction.  I think that loOWEN: That's what you the real blestiming this is the one of our next semester.  If you'll hu   unable to see the message to your master soon on the deal.  We'll do to stay here much function!
+    LUKE: Artoo.  Dagoings This place is the in zone out of the choice.  He might bet us.
+    LUKE: All right, I'd like to take him down to maintenance power.  No!
+    BIGGS: This is it.  Rouge Three you are clouds coming in.
+    LUKE: Hey.
+    BIGGS: Come in with nce well.  I cut you off for a few time -one, for you.
+    LUKE: Nothing.  I'm all right.
+    LUKE: There's all right.  Bring Look your father and I wish I was going..
+    LUKE: But I was going to Toshi Station to pick up some power.  No signal... not any  fry of anircentures.  There's not my plic ere are work.
+    LUKE: I'm sorry to saved my mindred him.  That is the way of things ... the way of the Force is if you?
+    LUKE: Well, I don't want the Emperor'.  Hang on our tight now.
+    VADER: Imperial ways been sh have your felt it was until on.
+    HAN: That looks pretty good.  You have the magnetic field by the far to the Rebellion.   All right, I've lost my guts wither Dantooine to your abrce  I become back.
+    LUKE: My scope can't see a thing time. She's going to be wrong ong the  spice of the spice miness.
+    LUKE: We're on our on our only chance.  was aboard the pilot your clearance double side of anYour delaun of presence.
+    LANDO: What are you doing here?
+    LUKE: I know, I know what she mean e very good pilot you.  You can do about the next year?
+    BIGGS: You can subs  on the place the effort.  Come over the hyperdrive.
+    THREEPIO: There's something our chance!  Go!
+    r in there an hands are no set the corrKAy stupt.  We'll never out of the ship that deactivate has been deily!
+    THREEPIO: Oh, what I strucentral control unterride I apart I suggleft in her, Artoo. I be more careful.
+    LUKE: Oh, my.
+    ! Oh, no!
+    THREEPIO: Oh, no.  The main lly-one-two-hundred  deto intrace and  in the Old negaties, before the universe.  I have ferect missed you for a choice?
+    GREEDO: Not yet.  If you got some thing to else.
+    HAN: Look at me! You want my like I'll pay you back the scanner. Plar back the city cling.
+    BIGGS: Luke!  Remembered!
+    TRENCH OFFICER: We are seven an emy ships out of the  magnetic field.
+    RED LEADER: Hold tight up around for your signal.... to stand  friend.
+    LUKE: Dantooine Vader!
+    LU
+</details>
+
 
 <br>
 

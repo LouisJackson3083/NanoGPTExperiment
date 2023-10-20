@@ -23,7 +23,7 @@ torch.manual_seed(1337)
 # !wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
 
 # let's open the text file 
-with open('starwars.txt', 'r', encoding='utf-8') as f:
+with open('shakespeare.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 #region tokenisation
