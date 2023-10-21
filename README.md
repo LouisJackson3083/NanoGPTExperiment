@@ -38,16 +38,7 @@ You can change the file directory on line 11 of main.py, and in the `/src/` dire
 `py main.py` or `python3 main.py`
 
 ## Findings
-I first developed the model with N-character tokenisation. At first glance the N-character tokenisation see
-### 1-Character
-The first results I generated was with a 1-character model. At first glance the 1-character model appears to be a normal Shakespeare script, with appropriate new lines and paragraphs, but under close inspection it makes no grammatical sense.
-It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense - because the model does employ word or sentence embeddings. Despite this, it is very good at constructing actual words, just not very good at stringing them together in a way that makes grammatical or semantic sense.
-
-### 2-Character
-The second results I generated was with a 2-character model. We see similar patterns and results to the 1-character model, with the 2-character model also not making grammatical or semantic sense. However, we consistently get better strings of words.
-
-### 3-Character
-The 3-character model seems to get considerably better results then the 1 and 2 character models.
+I first developed the model with N-character tokenisation, which you can see the results of below. The results do imitate the general structure of their relevant datasets, but under inspection they do not make grammatical sense. It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense - because the model does employ word or sentence embeddings. Despite this, it is very good at constructing actual words, just not very good at stringing them together in a way that makes sense to humans. As we increase the number of characters in our N character tokenisation, we get marginally better and more consistent results.
 
 ### Dataset comparison
 It's interesting to compare the output of both the Shakespeare text and the Star Wars text.
