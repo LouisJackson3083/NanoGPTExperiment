@@ -7,11 +7,9 @@ Since picking the project back up again with the start of my NLP studies, I aim 
 - [x] Implement N-character tokenisation
 - [ ] Implement N-gram tokenisation
 - [ ] Implement different generation methods
+- [ ] Create save/load functions for GPTModel
 
 ## Setup
-To run this model, you need to have a CUDA supporting GPU, otherwise the model will take a long time to run on a CPU.
-The model takes in an input text file, the longer the better, and tries to generate text based off of the character sequences found in the text.
-
 Windows:
 ```
 py -m venv venv
@@ -30,9 +28,17 @@ python3 -m pip install torch --index-url https://download.pytorch.org/whl/cu117
 python3 -m pip install -r requirements.txt
 ```
 
+## Running the Model
+To run this model, you need to have a CUDA supporting GPU, otherwise it will take a long time to run on a CPU.
+The model takes in an input text file, the longer the better, and tries to generate text based off of the character sequences found in the text.
+
 I've supplied 2 example texts to the model, one is the entire works of Shakespeare (1,115,394 characters) and episodes IV to VI of Star Wars (159,478 characters).
 
+You can change the file directory on line 11 of main.py, and in the `/src/` directory run either:
+`py main.py` or `python3 main.py`
+
 ## Findings
+I first developed the model with N-character tokenisation. At first glance the N-character tokenisation see
 ### 1-Character
 The first results I generated was with a 1-character model. At first glance the 1-character model appears to be a normal Shakespeare script, with appropriate new lines and paragraphs, but under close inspection it makes no grammatical sense.
 It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense - because the model does employ word or sentence embeddings. Despite this, it is very good at constructing actual words, just not very good at stringing them together in a way that makes grammatical or semantic sense.
@@ -552,6 +558,7 @@ There is potentially much to do here with word/sentence embeddings, which would 
 
 # How I developed this model
 
-![](./img/image.png)
+![](./img/classes.png)
+![](./img/transformer.png)
 
 The model was based on the Attention Is All You Need paper (https://arxiv.org/abs/1706.03762), and Andrej Karparthy's amazing tutorials on youtube: https://www.youtube.com/@AndrejKarpathy
