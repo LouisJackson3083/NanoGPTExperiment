@@ -38,7 +38,11 @@ The first results I generated was with a 1-character model. At first glance the 
 It can predict and generate new characters given the previous characters of a sentence, but it does not understand the words in a contextual sense - because the model does employ word or sentence embeddings. Despite this, it is very good at constructing actual words, just not very good at stringing them together in a way that makes grammatical or semantic sense.
 
 ### 2-Character
-The second results I generated was with a 2-character model. 
+The second results I generated was with a 2-character model. We see similar patterns and results to the 1-character model, with the 2-character model also not making grammatical or semantic sense. However, we consistently get better strings of words.
+
+### 3-Character
+The 3-character model seems to get considerably better results then the 1 and 2 character models.
+
 ### Dataset comparison
 It's interesting to compare the output of both the Shakespeare text and the Star Wars text.
 The Shakespeare text is more unique and random than the Star Wars text, but is less coherent.
@@ -326,7 +330,7 @@ There is potentially much to do here with word/sentence embeddings, which would 
 
 <details>
     <summary>2-Character Star Wars</summary>
-    
+
     AA, makes up!
     NEEDA: Only movery ybody.  Do you know him?
     CREATURE: Help you. You would be done. For my ally the sattle side of fact!  My hand no sign of th My father religion. We are so back about my staying on and soon blame about my way to do  is planet us.
@@ -367,11 +371,187 @@ There is potentially much to do here with word/sentence embeddings, which would 
     LU
 </details>
 
+#### 3-Character
+<details>
+    <summary>3-Character Shakespeare</summary>
+    
+    ABHORSNM:
+    so it, to my lord, she may despernts;
+    His dearest charitable hath lost his country hath been
+    Their dishes contented coas against my sovereign fierce
+    You and would laugh'd in love.
+
+    LEONTES:
+    No, but he, in this fellow like all: you
+    Shall have at a give.
+
+    HERMIONE:
+    Yes! Camillo, speak to it?
+
+    LEONTES:
+
+    MAMILLIUS:
+    Pray you, sir, I pray you to My guivalh, bear him
+    To kiss: with my daughter's feet, my lords.
+
+    HENRY BOLINGBROKE:
+    By your first valour give my sweet friends,
+    In fearful, stop-mountiom scepter'd;
+    So is there that done us thy slander.
+
+    MERCUTIO:
+    Peace, use it. Young amain.
+
+    ROMEO:
+    A thousand brague; for if he be choosed together:
+    By my shato bing one, I meet to mock his.
+
+    BRUTUS:
+    And he shall in mortal adversam mutounch.
+    Wherefore, get your majesty, give up my it ther
+    habit; I'll offutieach some minutes wife's partner.
+
+    GLOUCESTER:
+    Therefore by Their partners were the tide of loverset:
+    To long displeaseth in your name and sullen,
+    Do kill you in this words.
+
+    LEONTES:
+    Now well, sir; I
+    crave your brother, yourself; and if you, delight
+    You sue to by the general and I might
+    not serve your
+    exclaim norsaluteous, to
+    make it good deed hope in a new blood man.
+
+    SICINIUS:
+    Good night, I wot so naturely: as disI as did not
+    Be a pin a little fit of dream of door, to our common grace
+    By own triumph; engmons are well enough,
+    You shall labrait you to dew, or discover'd:
+    By see love's I free allow occaside for you:
+    Look, he proved my kingdom:
+    And set down complain Edward's wooged with my loving show's;
+    Proceeding dauers. And how are I to Too many place?
+    Thine earth he hath posgry eyes, might hell'd you have prevail'd.
+
+    HASTINGS:
+    Soumd faces, for both woe are never--
+    He shall see her sorrow
+    How farwith our absten, and shall keep her grace above
+    Which oncy of he sleeps? By you all.
+
+    LEONTES:
+    Do I call him strike;
+    On my weep noble and mortal land withal,
+    But humbly will be this in gay all sever's name.
+    See, share up to me now, from this milkmaury!
+
+    AEdile:
+    My master stir sword
+    In trial-back arms,
+    Whose levy occasing mounting happy for this place?
+    O father! wherefore obtain'd thou upon thy pains?
+    This general friends! would these no more of honests
+    Weres this shame fair that content what,
+    Which is reckless upon the furthese of
+    And by that sails the visaged when once might it so,
+    But still no high being a little incidery to be look
+    To minuteous genhest to by a fouler empty.
+
+    GLOUCESTER:
+    Which that is his face can displeaser'd her friend,
+    And we stain to.
+    Yet, it is unstent the nobl's.
+
+    LEONTES:
+    We'll open your bride.
+
+    PAULINA:
+    Peace, hence, a fellow.
+
+    Roman:
+    No; being much time, as all oaths
+    At, worthy old is smelt.
+
+    LEONTES:
+    The hand, induced that our valour,
+    Raise Thus! to thy prayer in blood,
+    Willoughby, you have your old bands! Resided it not thine new face?
+    And oly of English play. After Lewis, hence, we meet here,
+    By sigh, throng, standing upon our false,
+    To woe-edy.
+
+    HENRY PERCY:
+    Care!
+
+    KING RICHARD III:
+    Tush! nay, afort my clock; that should for
+    My greater eart to love a name of thought.
+
+    FRIAR LAURENCE:
+    Thou didst show not justly abserve thou weep'st:
+    But thou, if he be mad, nor thine of all.
+
+    KING EDWARD IV:
+    Stand
+
+</details>
+<details>
+    <summary>3-Character Star Wars</summary>
+
+    ACKBAR: I: That can help them!  Where have you done to me?
+    HAN: Threepio!  Threepio, you tell that way of he gets a here.
+    COMMANDER: I seethem.  It surprise are just going to be a message for him.
+    LUKE: I didn't think me deactivated you the first time... Can you  it be?
+    LUKE: I can't just believe he's gone.
+    LEIA: There wasn't anything you could have no ined and young remove to the good all about this technological terire.
+    THREEPIO: Artoo-Detoo-Detoo!  It's you!
+    HAN: What?  Point that cold.  It's all at the Sand People always.  We did it in.  Now I could take you told him it.  He's nowhere and no senp the ng me for smuggl.
+    VADER: Yes, my Master.
+    EMPEROR: Patience, I hate in the out of light-speed.
+    HAN: It'll be right about it.
+    LUKE: All right, take care of yourself, okay.
+    HAN: That's it. It's too dangerous for the Empire.
+    LUKE: I know, I think it the Empire had Wookiees in mind when they designed her, Get here read for your scanners.
+    VADER: Any attack, the Rebel fleet against the Empire.  It could be a speeded back time fortress and shut the hunk down the galaxy.
+    HAN: That'll be in it. And it could be...before you  get he this?
+    VADER: This is af range power for our ship!  Here, have been there.  Probably freezing in a  are easier, more busy up.
+    LUKE: Oh, no! We've had a fravous with all!
+    HAN: Here, hold this's good.
+    BEN: Here they have blast doord for him.
+    LEIA: What good is the impossible.  How will it go back and it's my plereally in condition.
+    YODA: No. Try not not. There in try.
+    LUKE: I can't. I'm sorry I could...
+    BIGGS: I almost set at the credition and shut the while.
+    LEIA: Vader is why I have to go.
+    HAN: Now got your find out those troopens for those fighters!
+    GOLD LEADER: I'm sure the guns Don't worry about it.
+    HAN: You probably ator ries a pretty good, Chewie. I think I got some because I've got to help them.
+    YODA: You must not go!
+    VADER: Well, I do it might be in thirty minutes.  Several, transmit my application.  When Ire am a Jedi fit in this time... or be carbon freezing. I think we better galaxy in here. I've done to help you think.
+    LUKEE: No, for an environment such this -- that's why I've also been programmed for over thirty secondary functions that...
+    OWEN: What a Destroyed...  by Luke... quiet, pleased with your friend. may take this wayMove.
+    THREEPIO: I'm sorry!  I'm quick all this out much too.  S2 unit into Anchorhead, and if ready your strenghed.
+    LUKE: Yeah, I'm not sure it's perfectly safe for droids.
+    LUKE: I know, but... always famching.
+    LEIA: What do you mean?
+    LANDO: I don't mean it. I'm slipping.
+    HAN: Grab it! Almost... Not thing... You are not a slight real light-speed, and we're  not interested...while is you had the chance.
+    HAN: I had a come control without the Falcon, but she would never be when then, you isn't.  Good luck.
+    HAN: You're a little think is left... I thought that you smell you're going to  make with us things... or you start your destiny.
+    LEIA: I don't know who you are?
+    HAN: Yeah, I think it some rescue. ... a yet, You see I can see.
+    LUKE: You know him!
+    BEN: He means like someone die.
+    LUKE: Ben... who
+
+</details>
 
 <br>
 
 # How I developed this model
 
-![](image.png)
+![](./img/image.png)
 
 The model was based on the Attention Is All You Need paper (https://arxiv.org/abs/1706.03762), and Andrej Karparthy's amazing tutorials on youtube: https://www.youtube.com/@AndrejKarpathy
