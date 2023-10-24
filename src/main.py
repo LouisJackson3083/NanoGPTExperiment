@@ -12,7 +12,7 @@ with open('../datasets/starwars.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 # using the NanoTokens class, let's get our tokens, and encode our text
-nanotokens = NanoTokens(token_method='2-character', text=text)
+nanotokens = NanoTokens(token_method='n-gram', n=3, text=text)
 hp.vocab_size = nanotokens.vocab_size
 
 # We are going to now encode the entire text dataset, and turn it into a torch.Tensor
@@ -77,4 +77,4 @@ for iter in range(hp.max_iters):
 
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=hp.device)
-print(nanotokens.decode(m.generate(context, max_new_tokens=2000)[0].tolist()))
+print(nanotokens.decode(m.generate(context, max_new_tokens=10)[0].tolist()))
